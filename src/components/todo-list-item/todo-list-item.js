@@ -2,13 +2,14 @@ import React from 'react';
 
 import './todo-list-item.css';
 
-const TodoListItem = ({ note }) => {
-  const {id, title} = note;
+const TodoListItem = ({ todo }) => {
+  const {id, text} = todo;
+  console.log(text)
   return(
     <li className="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-0">
-      {title}
+      {text}
       <div>
-        <button className="btn btn-outline-secondary" type="button"><i class="fas fa-pencil-alt"></i></button>
+        <button className="btn btn-outline-secondary" type="button"><i className="fas fa-pencil-alt"></i></button>
         <button className="btn btn-outline-danger" type="button"><i className="far fa-trash-alt"></i></button>
       </div>
     </li>

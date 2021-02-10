@@ -1,23 +1,42 @@
 import React from 'react';
 import TodoListItem from '../todo-list-item/todo-list-item';
+import { connect, useSelector } from 'react-redux';
 
 import './todo-list.css'
+import reducer from '../../reducers';
 
-const TodoList = ({ notes }) => {
+const selectTodos = (state) => state.todos;
+
+const TodoList = () => {
+  const todos = useSelector(state => state)
+  console.log(todos)
+ 
+
   return(
     <ul className='list-group'>
       {
-        notes.map((note) => {
+        todos.map((todo) => {
           return(
-            <li key={note.id}>
-              <TodoListItem note={note}/>
-            </li>
+            <TodoListItem key={todo.id}
+              todo={todo}
+            />
           )
         })
       }
-
     </ul>
   )
 }
 
-export default TodoList;
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    todos: reducer
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    
+  }
+}
+export default connect(mapStateToProps)(TodoList);
