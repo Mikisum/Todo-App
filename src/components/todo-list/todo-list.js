@@ -4,12 +4,14 @@ import { connect, useSelector } from 'react-redux';
 
 import './todo-list.css'
 import reducer from '../../reducers';
+import { todoDeleted } from '../../actions';
 
 const selectTodos = (state) => state.todos;
 
-const TodoList = () => {
-  const todos = useSelector(state => state)
+const TodoList = ({todos, onDeleted}) => {
   console.log(todos)
+  // const todos = useSelector(state => state)
+  // console.log(todos)
  
 
   return(
@@ -19,6 +21,7 @@ const TodoList = () => {
           return(
             <TodoListItem key={todo.id}
               todo={todo}
+              onDeleted={onDeleted}
             />
           )
         })
@@ -28,15 +31,19 @@ const TodoList = () => {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  console.log(state.todos)
   return {
-    todos: reducer
+    todos: state
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    
-  }
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     onDeleted: (id) => dispatch(todoDeleted(id))
+//   }
+// }
+
+const mapDispatchToProps = {
+  onDeleted: todoDeleted
 }
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

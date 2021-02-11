@@ -1,10 +1,25 @@
-const todosLoaded = (newTodos) => {
+const todoDeleted = (todoId) => {
   return {
-    type: 'TODOS_LOADED',
-    payload: newTodos
+    type: 'TODO_DELETED',
+    payload: todoId
+  }
+}
+
+const toAdded = (text) => {
+  return {
+    type: 'TODO_ADDED',
+    payload: text.trim()
+  }
+}
+
+const updateTodo = (todo) => {
+  return {
+    type: 'UPDATE_TODO',
+    payload: todo
   }
 }
 
 export {
-  todosLoaded
+  todoDeleted,
+  toAdded
 }

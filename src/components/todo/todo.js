@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
+import { toAdded } from '../../actions';
 
-const Todo = () => {
+const Todo = ({toAdded}) => {
   const [text, setText] = useState('')
   const dispatch = useDispatch()
 
@@ -31,6 +32,7 @@ const Todo = () => {
           <button 
             className="btn btn-outline-secondary"
             type="button"
+            
           >
             Add
           </button>
@@ -41,4 +43,15 @@ const Todo = () => {
   )
 }
 
-export default Todo;
+const mapStateToProps = (state) => {
+  return {state}
+}
+
+const mapDispatchToProps = {
+  toAdded: toAdded,
+  // onAddedToList: (id) => {
+  //   console.log('Added to list', id)
+  // }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todo);

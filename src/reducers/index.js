@@ -25,7 +25,7 @@ function nextTodoId(todos) {
 }
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'TODO_ADDED':{
+    case 'TODO_ADDED':
       return [
         ...state,
           {
@@ -33,7 +33,9 @@ const reducer = (state = initialState, action) => {
             text:action.payload
           }
       ]
-    }
+    
+    case 'TODO_DELETED': 
+      return state.filter((todo) => todo.id !== action.payload)
     
     default:
       return state
