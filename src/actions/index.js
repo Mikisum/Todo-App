@@ -8,18 +8,31 @@ const todoDeleted = (todoId) => {
 const toAdded = (text) => {
   return {
     type: 'TODO_ADDED',
-    payload: text.trim()
+    completed: false,
+    payload: text
   }
 }
 
-const updateTodo = (todo) => {
+const updateTodo = (id, text, completed) => {
   return {
-    type: 'UPDATE_TODO',
-    payload: todo
+    type: 'TODO_UPDATE',
+    id: id,
+    completed: completed,
+    payload: text
+  }
+}
+
+const todoCompleted= (id, completed) => {
+  return {
+    type: 'TODO_COMPLETED',
+    completed: completed,
+    payload: id
   }
 }
 
 export {
   todoDeleted,
-  toAdded
+  toAdded,
+  updateTodo,
+  todoCompleted
 }

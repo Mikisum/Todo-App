@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { toAdded } from '../../actions';
 
-const Todo = ({toAdded}) => {
+const Todo = () => {
+  
   const [text, setText] = useState('')
   const dispatch = useDispatch()
-
+  let completed= false
   const handleChange =  e => setText(e.target.value)
   const handleKeyDown = (e) => {
     // If the user pressed the Enter key:
@@ -32,26 +33,16 @@ const Todo = ({toAdded}) => {
           <button 
             className="btn btn-outline-secondary"
             type="button"
-            
+            onClick={() => {
+              dispatch(toAdded(text,completed))
+              setText('')
+            }}
           >
             Add
           </button>
         </div>
       </div> 
-  
-    
   )
 }
 
-const mapStateToProps = (state) => {
-  return {state}
-}
-
-const mapDispatchToProps = {
-  toAdded: toAdded,
-  // onAddedToList: (id) => {
-  //   console.log('Added to list', id)
-  // }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Todo);
+export default Todo;
