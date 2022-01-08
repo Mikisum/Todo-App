@@ -1,6 +1,7 @@
 import React from "react";
 import Note from "../todo";
 import TodoList from "../todo-list";
+import './app.css'
 
 const App = () => {
   return(
