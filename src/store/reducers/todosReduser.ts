@@ -3,20 +3,29 @@ import { TodosAction, TodosActionTypes, TodosState } from "../../types/todos"
 const initialState: TodosState = {
 	todos: [],
 	loading: false,
-	error: null
+	error: null,
+	page: 1,
+	limit: 10,
+	totalTodosCount: 0
 }
 
 export const todosReducer = (state = initialState, action: TodosAction): TodosState => {
 	switch (action.type) {
 
 		case TodosActionTypes.FETCH_TODOS:
-			return { loading: true, error: null, todos: [] }
+			return { ...state, loading: true }
 
 		case TodosActionTypes.FETCH_TODOS_SUCCESS:
-			return { loading: false, error: null, todos: action.payload }
+			return { ...state, loading: false, todos: action.payload }
 
 		case TodosActionTypes.FETCH_TODOS_ERROR:
-			return { loading: false, error: action.payload, todos: [] }
+			return { ...state, loading: false, error: action.payload }
+
+		case TodosActionTypes.SET_TODO_PAGE:
+			return { ...state, page: action.payload }
+
+		case TodosActionTypes.SET_TOTAL_TODOS_COUNT:
+			return { ...state, totalTodosCount: action.payload }
 
 		default:
 			return state

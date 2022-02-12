@@ -2,12 +2,18 @@ import axios from 'axios'
 import { Dispatch } from 'redux'
 import { TodosAction, TodosActionTypes } from '../../../types/todos'
 
-export const fetchTodos = () => {
+export const fetchTodos = (page = 1, limit = 10) => {
   return async (dispatch: Dispatch<TodosAction>) => {
     try {
       dispatch({ type: TodosActionTypes.FETCH_TODOS })
-      const response = await axios.get('https://jsonplaceholder.typicode.com/todos')
+      const response = await axios.get('https://jsonplaceholder.typicode.com/todos', {
+        params: { _page: page, _limit: limit }
+      })
+      const totalCount = parseInt(response.headers['x-total-count'])
       dispatch({ type: TodosActionTypes.FETCH_TODOS_SUCCESS, payload: response.data })
+      dispatch({ type: TodosActionTypes.SET_TOTAL_TODOS_COUNT, payload: totalCount })
+
+
     } catch (e) {
       dispatch({
         type: TodosActionTypes.FETCH_TODOS_ERROR,
@@ -17,6 +23,16 @@ export const fetchTodos = () => {
   }
 }
 
+
+
+
+export const setTodoPage = (page: number): TodosAction => {
+  return { type: TodosActionTypes.SET_TODO_PAGE, payload: page }
+}
+
+// export const setTotalTodosCount = (totalTodosCount: number): TodosAction => {
+//   return { type: TodosActionTypes.SET_TOTAL_TODOS_COUNT, payload: totalTodosCount }
+// }
 // const todoDeleted = (todoId) => {
 //   return {
 //     type: 'TODO_DELETED',
