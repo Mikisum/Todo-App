@@ -10,8 +10,7 @@ type PropsType = {
 	portionSize?: number
 }
 
-const Paginator: FC<PropsType> = ({ totalItemsCount, limit, currentPage, portionSize = 3, onPageChanged }) => {
-	console.log(totalItemsCount)
+const Paginator: FC<PropsType> = ({ totalItemsCount, limit, currentPage, portionSize = 5, onPageChanged }) => {
 	const pagesCount = Math.ceil(totalItemsCount / limit)
 
 	const pages = []
@@ -26,9 +25,14 @@ const Paginator: FC<PropsType> = ({ totalItemsCount, limit, currentPage, portion
 	let rightPortionPageNumber = portionNumber * portionSize
 
 	return (
-		<div>
+		<div className={classes.paginator}>
 			{portionNumber > 1 &&
-				<button onClick={() => { setPortionNumber(portionNumber - 1) }}>Prev</button>
+				<button
+					className={classes.button}
+					onClick={() => { setPortionNumber(portionNumber - 1) }}
+				>
+					&laquo;
+				</button>
 			}
 			{pages
 				.filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
@@ -36,10 +40,18 @@ const Paginator: FC<PropsType> = ({ totalItemsCount, limit, currentPage, portion
 					className={cn({
 						[classes.selectedPage]: currentPage === p
 					}, classes.pageNumber)}
-					onClick={(e) => onPageChanged(p)}>{p}</span>)}
+					onClick={(e) => {
+						console.log(p)
+						onPageChanged(p)
+					}}>{p}</span>)}
 
 			{portionCount > portionNumber &&
-				<button onClick={() => { setPortionNumber(portionNumber + 1) }}>Next</button>}
+				<button
+					className={classes.button}
+					onClick={() => { setPortionNumber(portionNumber + 1) }}
+				>
+					&raquo;
+				</button>}
 		</div>
 	)
 }

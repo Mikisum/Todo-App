@@ -1,60 +1,77 @@
+import { faCheck, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import './todo-list-item.css';
+import { useActions } from '../../hooks/useActions';
+import { Todo } from '../../types/todos';
+import classes from './todo-list-item.module.css';
 
-export const TodoListItem: FC = ({ }) => {
+type PropsType = {
+  todo: Todo
+}
+
+export const TodoListItem: FC<PropsType> = ({ todo }) => {
 
   const [editable, setEditable] = useState(false);
-  // const [text, setText] = useState(todo.text);
-  const [completed, setCompleted] = useState(false);
+  const [text, setText] = useState(todo.title);
+  const { todoDelete, todoOnChange } = useActions()
 
-  let dispatch = useDispatch()
 
+
+  const updateTodoItem = () => {
+    if (editable) {
+      const newTodo = {
+        userId: 1,
+        id: todo.id,
+        title: text,
+        completed: todo.completed
+      }
+      setText(text)
+      todoOnChange(newTodo)
+    }
+    setEditable(!editable)
+  }
 
   return (
     <li
-      className="list-group-item list-group-item-action d-flex justify-content-between align-items-center p-0"
-      style={{
-        cursor: "pointer",
-        textDecoration: completed ? "line-through" : "none"
-      }}
+      className={classes.todoListItem}
     >
       <input
         type="checkbox"
         aria-label="Checkbox for following text input"
+        checked={todo.completed}
         onChange={() => {
-          setCompleted(!completed)
-          // dispatch(updateTodo(todo.id, text, !completed))
+          todoOnChange({
+            userId: 1,
+            id: todo.id,
+            title: text,
+            completed: !todo.completed
+          })
         }}
-
       />
-      {/* {editable ? <input type='text' className='form-control'
-        // defaultValue={text}
-        onChange={
-          (e) => setText(e.target.value)
-        }
-      /> : text}
+      {editable
+        ? <input
+          type='text'
+          defaultValue={text}
+          onChange={e => setText(e.target.value)}
+        />
+        : text}
       <div>
         <button
-          className="btn btn-outline-secondary"
+          className={classes.button}
           type="button"
-          onClick={() => {
-            if (editable) {
-              setText(text)
-              dispatch(updateTodo(todo.id, text, completed))
-            }
-            setEditable(!editable)
-          }
-          }
-        >{editable ? 'Update' : <i className="fas fa-pencil-alt"></i>}
+          onClick={() => updateTodoItem()}
+        >
+          {editable ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faPen} />}
 
         </button>
         <button
-          className="btn btn-outline-danger"
+          className={classes.button}
           type="button"
-          onClick={() => dispatch(todoDeleted(todo.id))} */}
-      {/* ><i className="far fa-trash-alt"></i></button> */}
-      {/* </div> */}
+          onClick={() => todoDelete(todo)}
+        >
+          <FontAwesomeIcon icon={faTrash} color='red' />
+        </button>
+      </div>
     </li>
   )
 }

@@ -1,0 +1,30 @@
+.todoListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ced4da;
+  padding-left: 10px;
+  border-radius: .25rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.todoListItem:active {
+  box-shadow:  0 0 10px  #ced4da ;
+  background-color: #ced4da;
+}
+
+.todoListItem:hover {
+  box-shadow:  0 0 10px  #ced4da ;
+  background-color: #ced4da;
+}
+
+.button {
+  border: none;
+  background-color: #fff;
+  margin-left: 5px;
+}
+
+.button:hover {
+  box-shadow:  0 0 5px  #ff0000 ;
+}

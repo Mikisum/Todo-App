@@ -1,13 +1,30 @@
+.paginator {
+	text-align: center;
+}
+
 .selectedPage {
   font-weight: bold;
 }
   
 .pageNumber {
 	padding: 2px;
-	border: 1px solid grey;
+	transition: background-color .3s;
 }
   
 .pageNumber.selectedPage {
-	font-weight: bold;
-	border-color: black;
+  border-radius: 2px;
 } 
+
+.pageNumber:hover {
+	background-color: #ced4da;
+	cursor: pointer;
+}
+
+.button {
+	border: none;
+	background-color: #fff;
+}
+
+.button:focus {
+	outline: none;
+}

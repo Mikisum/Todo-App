@@ -1,15 +1,15 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import Paginator from '../common/Paginator';
-import './todo-list.css';
+import { TodoForm } from '../todo/TodoForm';
+import { TodoListItem } from '../TodoListItem/TodoListItem';
+import classes from './todoList.module.css';
 
 const TodoList: FC = () => {
   const { todos, loading, error, page, limit, totalTodosCount } = useTypedSelector(state => state.todos)
   const { fetchTodos, setTodoPage } = useActions()
-  const pages = [1, 2, 3, 4, 5]
-  const [editable, setEditable] = useState(false);
-  const [completed, setCompleted] = useState(false);
+  console.log(todos)
 
   useEffect(() => {
     fetchTodos(page, limit)
@@ -23,27 +23,23 @@ const TodoList: FC = () => {
   }
 
   return (
-    <ul className='list-group'>
-      {todos.map(todo =>
-        <li key={todo.id}>{todo.id} - {todo.title}</li>
-      )}
-      <Paginator currentPage={page}
+    <>
+      <TodoForm />
+      <ul className={classes.listGroup} >
+        {todos.map(todo =>
+          <TodoListItem
+            key={todo.id}
+            todo={todo}
+          />
+
+        )}
+      </ul>
+      <Paginator
+        currentPage={page}
         onPageChanged={setTodoPage}
         totalItemsCount={totalTodosCount}
         limit={limit} />
-      {/* <div style={{ display: 'flex' }}>
-
-        {pages.map(p =>
-          <div
-            onClick={() => setTodoPage(p)}
-            key={p}
-            style={{ border: p === page ? '2px solid green' : '1px solid gray', padding: 10 }}
-          >
-            {p}
-          </div>
-        )}
-      </div> */}
-    </ul>
+    </>
   )
 }
 
