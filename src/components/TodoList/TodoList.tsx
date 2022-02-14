@@ -11,19 +11,15 @@ const TodoList: FC = () => {
   const { fetchTodos, setTodoPage } = useActions()
   console.log(todos)
 
+
   useEffect(() => {
     fetchTodos(page, limit)
+    console.log('call once')
   }, [page])
 
-  if (loading) {
-    return <h1>Идет загрузка...</h1>
-  }
-  if (error) {
-    return <h1>{error}</h1>
-  }
-
   return (
-    <>
+    <div className={classes.todoList}>
+      {loading && <h1>loading...</h1>}
       <TodoForm />
       <ul className={classes.listGroup} >
         {todos.map(todo =>
@@ -39,7 +35,7 @@ const TodoList: FC = () => {
         onPageChanged={setTodoPage}
         totalItemsCount={totalTodosCount}
         limit={limit} />
-    </>
+    </div>
   )
 }
 

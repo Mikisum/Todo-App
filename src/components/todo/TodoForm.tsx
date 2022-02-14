@@ -25,7 +25,7 @@ export const TodoForm = () => {
 			onSubmit={handleSubmit}>
 			{/* register your input into the hook by invoking the "register" function */}
 			<input type="text" value={input} onChange={(e) => setInput(e.target.value)} />
-			<input type="submit" />
+			<input className={classes.submit} type="submit" />
 		</form>
 	)
 }

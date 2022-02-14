@@ -1,4 +1,11 @@
 .form {
-    margin: 10px auto;
-    text-align: center;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.submit {
+  color: var(--main-text-color);
+	margin-left: 10px;
+  border: none;
+  background-color: rgb(209, 34, 200, 0.75);
 }
