@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;400;600&display=swap');
 
 :root {
-  --main-text-color: #575757;
+  --main-text-color: #575757; 
 }
 
 html {
@@ -44,9 +44,9 @@ a:active {
 }
 
 a:hover {
-  background-color: #ede6ec;
+  background-color: #fae6ff;
   color: #575757;
-  border-bottom: 2px solid #a83299;
+  border-bottom: 2px solid #d11aff;
 }
 
 @media (max-width: 768px) {

@@ -15,7 +15,7 @@ const TodoList: FC = () => {
   useEffect(() => {
     fetchTodos(page, limit)
     console.log('call once')
-  }, [page])
+  }, [])
 
   return (
     <div className={classes.todoList}>
