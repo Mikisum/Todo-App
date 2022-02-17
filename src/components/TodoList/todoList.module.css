@@ -1,11 +1,28 @@
 .listGroup{
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: column-reverse;
+  margin: auto;
 }
 
 .todoList {
   margin: 30px auto;
-  width: 600px;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .listGroup {
+    max-width: 400px 
+  }
+}
+
+@media (max-width: 480px) {
+  .listGroup {
+    max-width: 260px 
+  }
+}
+
+@media (max-width: 320px) {
+  .listGroup {
+    max-width: 180px 
+  }
 }

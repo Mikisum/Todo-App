@@ -3,6 +3,8 @@
 
 :root {
   --main-text-color: #575757; 
+  --main-button-color: #a83299;
+  --main-hover-color: #e6e6ff;
 }
 
 html {
@@ -23,6 +25,16 @@ button {
   border: none;
 }
 
+button, 
+button:active, 
+button:focus{
+    outline: none;
+}
+
+textarea {
+  border: none;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -33,10 +45,8 @@ button {
 a {
   text-decoration: none;
   color: #000;
-  
   transition: 0.3s ease;
   font-size: 1.5rem;
-  padding: 10px 0px;
 }
 
 a:active {
@@ -44,25 +54,7 @@ a:active {
 }
 
 a:hover {
-  background-color: #fae6ff;
+  background-color: var(--main-hover-color);
   color: #575757;
   border-bottom: 2px solid #d11aff;
-}
-
-@media (max-width: 768px) {
-  .container {
-    max-width: 500px 
-  }
-}
-
-@media (max-width: 460px) {
-  .container {
-    max-width: 400px 
-  }
-}
-
-@media (max-width: 320px) {
-  .container {
-    max-width: 300px 
-  }
 }

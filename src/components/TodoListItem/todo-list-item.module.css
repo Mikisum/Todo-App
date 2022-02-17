@@ -1,30 +1,79 @@
 .todoListItem {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 10%;
   align-items: center;
-  justify-content: space-between;
-  border: 1px solid #ced4da;
-  padding-left: 10px;
-  border-radius: .25rem;
+  margin: auto;
   cursor: pointer;
   margin-bottom: 10px;
+	transition: 0.3s ease;
 }
 
-.todoListItem:active {
-  box-shadow:  0 0 10px  #ced4da ;
-  background-color: #ced4da;
+.todoListItem span {
+	text-align: left;
+	padding: 0.4% 1.5%;
 }
 
-.todoListItem:hover {
+.itemContainer {
+	display: flex;
+	align-items: center;
+  padding: 0 10px;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+
+.itemContainer textarea {
+	flex-grow: 1;
+}
+
+.itemContainer:hover {
   box-shadow:  0 0 10px  #ced4da ;
-  background-color: #ced4da;
+  background-color: var(--main-hover-color);
+}
+
+.buttonsGroup {
+	display: flex;
+	justify-content: space-between;
 }
 
 .button {
   border: none;
   background-color: #fff;
-  margin-left: 5px;
+	color: var(--main-button-color);
 }
 
-.button:hover {
-  box-shadow:  0 0 5px  #ff0000 ;
+.icon:hover {
+  color: var(--main-text-color)
+}
+
+.checkbox {
+	-webkit-appearance: none;
+	height: 20px;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 0.5rem;
+	margin-right: 0.2rem;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.checkbox:active, .checkbox:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.checkbox:checked {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+.checkbox:checked:after {
+	content: '\2714';
+	font-size: 1rem;
+	position: absolute;
+	top: -3px;
+	left: 3px;
+	color: var(--main-button-color);
 }

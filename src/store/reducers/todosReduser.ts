@@ -37,13 +37,14 @@ export const todosReducer = (state = initialState, action: TodosAction): TodosSt
 		//  I do not use the response and set the id manually
 		case TodosActionTypes.TODO_ADD:
 			return {
-				...state, todos: [...state.todos,
-				{
-					userId: 1,
-					id: state.todos.length + 1,
-					title: action.payload,
-					completed: false
-				}]
+				...state, todos: [
+					{
+						userId: 1,
+						id: state.todos.length + 1,
+						title: action.payload,
+						completed: false
+					},
+					...state.todos,]
 			}
 
 		case TodosActionTypes.TODO_DELETE:

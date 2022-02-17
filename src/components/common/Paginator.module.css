@@ -7,17 +7,18 @@
 }
   
 .pageNumber {
-	padding: 2px;
+	padding: 0.5rem;
 	transition: background-color .3s;
 }
   
 .pageNumber.selectedPage {
-  border-radius: 2px;
+	color: var(--main-button-color);
 } 
 
 .pageNumber:hover {
-	background-color: #ced4da;
 	cursor: pointer;
+	color: var(--main-button-color);
+
 }
 
 .button {
