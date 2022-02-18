@@ -3,7 +3,7 @@ import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Todo } from '../../types/todos';
 import Paginator from '../common/Paginator';
-import { TodoForm } from '../todo/TodoForm';
+import { TodoForm } from '../TodoForm/TodoForm';
 import { TodoListItem } from '../TodoListItem/TodoListItem';
 import classes from './todoList.module.css';
 
