@@ -1,5 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
 import React, { FC } from "react";
-import { Link } from "react-router-dom";
 import logo from './../assets/logo.png';
 import classes from './header.module.css';
 
@@ -7,11 +8,11 @@ export const Header: FC = () => {
   return (
     <div className={classes.header}>
 
-      <img src={logo}></img>
+      <Image src={logo}></Image>
 
       <nav className={classes.navbar}>
-        <Link to="/">Home</Link>
-        <Link to="todo">Todo</Link>
+        <Link href="/"><a>Home</a></Link>
+        <Link href="todo"><a>Todo</a></Link>
       </nav>
 
     </div>

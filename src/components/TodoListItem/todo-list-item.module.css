@@ -1,17 +1,21 @@
 .todoListItem {
   display: grid;
-  grid-template-columns: 1fr 10%;
+  grid-template-columns: 1fr 8%;
   align-items: center;
   margin: auto;
   cursor: pointer;
   margin-bottom: 10px;
-	width: 600px;
+	width: 100%;
 	transition: 0.3s ease;
 }
 
 .todoListItem span {
 	text-align: left;
 	padding: 0.4% 1.5%;
+}
+
+.text {
+	border: none;
 }
 
 .itemContainer {
@@ -33,7 +37,7 @@
 
 .buttonsGroup {
 	display: flex;
-	justify-content: space-between;
+	padding: 0 10%;
 }
 
 .button {
@@ -74,7 +78,7 @@
 	content: '\2714';
 	font-size: 1rem;
 	position: absolute;
-	top: -3px;
+	top: 0;
 	left: 3px;
 	color: var(--main-button-color);
 }

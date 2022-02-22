@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;400;600&display=swap');
+
+:root {
+	--main-text-color: #575757; 
+	--main-button-color: #a83299;
+	--main-hover-color: #e6e6ff;
+}
+
+html {
+	height: 100%;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+h1,h2,h3,h4,h5 {
+	margin: 0;
+}
+
+h1 {
+	font-size: 4rem;
+}
+
+body {
+	color: var(--main-text-color);
+	font-family: 'Hahmlet', serif;
+}
+
+button {
+	background-color: #a83299;
+	border: none;
+}
+
+button, 
+input,
+input:active,
+input:focus,
+button:active, 
+button:focus,
+textarea,
+textarea:active,
+textarea:focus{
+	outline: none;
+}
+
+textarea {
+	border: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+	transition: 0.3s ease;
+	font-size: 1.5rem;
+}
+
+a:active {
+	background-color: #ede6ec;
+}
+
+a:hover {
+	background-color: var(--main-hover-color);
+	color: #575757;
+	box-shadow: 0 4px 2px -2px var(--main-button-color);
+}

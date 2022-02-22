@@ -56,8 +56,9 @@ export const TodoListItem: FC<PropsType> = ({ todo }) => {
         />
 
         {editable
-          ? <textarea
+          ? <input
             defaultValue={text}
+            className={classes.text}
             onChange={e => setText(e.target.value)}
           />
           : <span>{text}</span>}

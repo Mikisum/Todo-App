@@ -7,24 +7,24 @@
 
 .todoList {
   margin: 1rem auto;
-  max-width: 600px;
+  width: 600px;
 
 }
 
 @media (max-width: 768px) {
-  .listGroup {
+  .todoList {
     max-width: 400px 
   }
 }
 
 @media (max-width: 480px) {
-  .listGroup {
+  .todoList {
     max-width: 260px 
   }
 }
 
 @media (max-width: 320px) {
-  .listGroup {
+  .todoList {
     max-width: 180px 
   }
 }
