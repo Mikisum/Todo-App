@@ -1,4 +1,19 @@
-# Getting Started with Create React App
+# React.js Todo App
+Simple Todo React.js App made using React Hooks, react-redux,react-router, TypeScript and JSON Placeholder REST API.
+
+## Try it: https://mikisum.github.io/Todo-App/
+
+App provides you to create/change/remove simple text notes:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/57707166/154669834-579204f7-ffb8-42c7-bf03-549e488175dd.png">
+</p>
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/57707166/154669744-91681823-6912-4ad3-8809-f30ac2d2d2b0.png">
+</p>
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
