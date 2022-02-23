@@ -1,7 +1,7 @@
 # React.js Todo App
 Simple Todo React.js App made using React Hooks, react-redux,react-router, TypeScript and JSON Placeholder REST API.
 
-## Try it: https://mikisum.github.io/Todo-App/
+## Try it: https://todo-three-psi.vercel.app/
 
 App provides you to create/change/remove simple text notes:
 
@@ -10,7 +10,7 @@ App provides you to create/change/remove simple text notes:
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/57707166/154669744-91681823-6912-4ad3-8809-f30ac2d2d2b0.png">
+  <img src="https://user-images.githubusercontent.com/57707166/155400974-b6f1c351-0702-4a6d-8006-136fe351ba83.png">
 </p>
 
 
