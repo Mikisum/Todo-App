@@ -21,7 +21,14 @@ export const TodoForm = () => {
 		<form
 			className={classes.form}
 			onSubmit={handleSubmit}>
-			<input type="text" className={classes.text} value={input} onChange={(e) => setInput(e.target.value)} />
+			<input
+				type="text"
+				className={classes.text}
+				value={input}
+				onChange={(e) => setInput(e.target.value)}
+				placeholder="Enter your note"
+				autoComplete="false"
+			/>
 			<input className={classes.submit} type="submit" value="Add" />
 		</form>
 	)

@@ -6,6 +6,10 @@
 	--main-hover-color: #e6e6ff;
 }
 
+* {
+	box-sizing: border-box;
+}
+
 html {
 	height: 100%;
 }
@@ -14,9 +18,16 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
 }
 
 h1,h2,h3,h4,h5 {
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
 	margin: 0;
 }
 
@@ -44,6 +55,10 @@ textarea,
 textarea:active,
 textarea:focus{
 	outline: none;
+}
+
+input::placeholder {
+	color: var(--main-hover-color);
 }
 
 textarea {

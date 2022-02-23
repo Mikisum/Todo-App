@@ -34,35 +34,33 @@ export const TodoListItem: FC<PropsType> = ({ todo }) => {
   }
 
   return (
-    <li
-      className={classes.todoListItem}
-    >
-      <div className={classes.itemContainer}>
-        <input
-          type="checkbox"
-          aria-label="Checkbox for following text input"
-          className={classes.checkbox}
-          checked={todoCompleted}
-          onChange={() => {
-            setTodoComleted(!todoCompleted)
-            todoOnChange({
-              userId: 1,
-              id: todo.id,
-              title: text,
-              completed: todoCompleted
-            })
-          }
-          }
-        />
+    <li className={classes.todoListItem}>
 
-        {editable
-          ? <input
-            defaultValue={text}
-            className={classes.text}
-            onChange={e => setText(e.target.value)}
-          />
-          : <span>{text}</span>}
-      </div>
+      <input
+        type="checkbox"
+        aria-label="Checkbox for following text input"
+        className={classes.checkbox}
+        checked={todoCompleted}
+        onChange={() => {
+          setTodoComleted(!todoCompleted)
+          todoOnChange({
+            userId: 1,
+            id: todo.id,
+            title: text,
+            completed: todoCompleted
+          })
+        }
+        }
+      />
+
+      {editable
+        ? <input
+          defaultValue={text}
+          className={classes.text}
+          onChange={e => setText(e.target.value)}
+        />
+        : <span>{text}</span>}
+
       <div className={classes.buttonsGroup}>
         <button
           className={classes.button}
