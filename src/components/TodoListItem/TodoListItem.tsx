@@ -4,8 +4,7 @@ import React, { FC, useState } from 'react';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Todo } from '../../types/todos';
-import classes from './todo-list-item.module.css';
-
+import classes from './todoListItem.module.css';
 
 type PropsType = {
   todo: Todo
@@ -35,7 +34,6 @@ export const TodoListItem: FC<PropsType> = ({ todo }) => {
 
   return (
     <li className={classes.todoListItem}>
-
       <input
         type="checkbox"
         aria-label="Checkbox for following text input"

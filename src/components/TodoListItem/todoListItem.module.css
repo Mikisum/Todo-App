@@ -4,7 +4,6 @@
   align-items: center;
   margin: auto;
   cursor: pointer;
-  /* margin-bottom: 10px; */
 	width: 100%;
 	transition: 0.3s ease;
 	border-top: 1px solid #e5e5e5;
@@ -20,20 +19,8 @@
 	border: none;
 }
 
-.itemContainer {
-	display: flex;
-	align-items: center;
-  padding: 0 10px;
-  border: 1px solid #ced4da;
-  border-radius: .25rem;
-}
-
-.itemContainer textarea {
-	flex-grow: 1;
-}
-
-.itemContainer:hover {
-  box-shadow:  0 0 10px  #ced4da ;
+.todoListItem:hover {
+	box-shadow:  0 0 10px  #ced4da ;
   background-color: var(--main-hover-color);
 }
 
@@ -44,7 +31,7 @@
 
 .button {
   border: none;
-  background-color: #fff;
+  background-color: inherit;
 	color: var(--main-button-color);
 }
 

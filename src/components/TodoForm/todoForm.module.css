@@ -2,14 +2,12 @@
   display: flex;
   justify-content: center;
   margin: 3% auto;
+  padding: 0 3%;
 }
 
 .text {
   width: 70%;
   height: 25px;
-	/* border: 0.05rem solid ;
-	border-radius: 5px;
-  border-color: var(--main-outline-color); */
   border: none;
   border-radius: 5px;
   color: #444;
@@ -20,10 +18,8 @@
 }
 
 .text:focus {
-  
-    outline-color: #34495E;
-    opacity: 0.6;
-  
+  outline-color: #34495E;
+  opacity: 0.6;
 }
 
 .submit {
